@@ -5,7 +5,7 @@ public class Hand {
 	ArrayList<Card> hand;
 	int[] valueCounts = new int[13];
 	int[] suitCounts = new int[4];
-	boolean aceLowStraights = true;
+	boolean aceLowStraights = true; //ie in a 6+ short deck game, A 6 7 8 9 is a straight. If your house rules doesn't accept this, set to false.
 
 	public Hand() {
 		hand = new ArrayList<Card>();
