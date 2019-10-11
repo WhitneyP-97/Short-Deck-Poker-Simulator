@@ -1,6 +1,3 @@
-//this simulator doesn't make value judgments on hands. If your seven card hand has a pair and a straight flush, it will appear as both a pair and a straight flush.
-//this is because many short deck games have house rules which make regular poker rules unusable.
-
 package shortDeck;
 import java.util.*;
 
@@ -55,7 +52,7 @@ public class Simulator{
 			Deck d = new Deck(min);
 			d.shuffle();
 			ArrayList<Card> cards = d.dealXCards(7);
-			Hand h = new Hand(cards);
+			Hand h = new Hand(cards, min);
 			
 			if(h.isPair()) {
 				pairs++;
