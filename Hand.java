@@ -6,17 +6,23 @@ public class Hand {
 	int[] valueCounts = new int[13];
 	int[] suitCounts = new int[4];
 	boolean aceLowStraights = true;
+	Card[] a;
 	int min;
 
 	public Hand(int m) {
 		hand = new ArrayList<Card>();
 		valCounts();
 		suitCounts();
+		a = new Card[0];
 		min = m;
 	}
 	
 	public Hand(ArrayList<Card> x, int m) {
 		hand = x;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		valCounts();
 		suitCounts();
 		min = m;
@@ -25,6 +31,10 @@ public class Hand {
 	public Hand(ArrayList<Card> x, ArrayList<Card> y, int m) {
 		x.addAll(y);
 		hand = x;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		valCounts();
 		suitCounts();
 		min = m;
@@ -33,6 +43,10 @@ public class Hand {
 	public Hand(ArrayList<Card> x, Card y, int m) {
 		x.add(y);
 		hand = x;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		valCounts();
 		suitCounts();
 		min = m;
@@ -42,6 +56,10 @@ public class Hand {
 		ArrayList<Card> h1 = h.getHand();
 		h1.add(y);
 		hand = h1;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		valCounts();
 		suitCounts();
 		min = m;
@@ -51,6 +69,10 @@ public class Hand {
 		ArrayList<Card> h1 = h.getHand();
 		h1.addAll(c);
 		hand = h1;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		valCounts();
 		suitCounts();
 		min = m;
@@ -60,6 +82,10 @@ public class Hand {
 		ArrayList<Card> h = h1.getHand();
 		h.addAll(h2.getHand());
 		hand = h;
+		a = new Card[hand.size()];
+		for(int i=0;i<hand.size();i++) {
+			a[i]=hand.get(i);
+		}
 		min = m;
 		valCounts();
 		suitCounts();
@@ -90,6 +116,20 @@ public class Hand {
 				}
 			}
 			suitCounts[i]=x;
+		}
+	}
+	
+	public void resetHand(Card[] c) {
+		hand.clear();
+		for(int i=0;i<c.length;i++) {
+			hand.add(c[i]);
+		}
+	}
+	
+	public void resetHand() {
+		hand.clear();
+		for(int i=0;i<a.length;i++) {
+			hand.add(a[i]);
 		}
 	}
 	
@@ -540,4 +580,19 @@ public class Hand {
 		return c;
 	}
 	
+	public boolean isHighCard() {
+		return true;
+	}
+	
+	public int getMin() {
+		return min;
+	}
+	
+	public int[] getValueCounts() {
+		return valueCounts;
+	}
+	
+	public int[] getSuitCounts() {
+		return suitCounts;
+	}
 }
