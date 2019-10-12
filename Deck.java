@@ -23,6 +23,27 @@ public class Deck {
 		Collections.shuffle(deck);
 	}
 	
+	public void resetDeck(int min) {
+		deck.clear();
+		for(int i=min;i<=14;i++) {
+			for(int j=0;j<4;j++) {
+				Card x = new Card(i,j);
+				deck.add(x);
+			}
+		}	
+	}
+	
+	public void resetDeck(ArrayList<Card> c) {
+		deck = c;
+	}
+	
+	public void resetDeck(Card[] c) {
+		deck.clear();
+		for(int i=0;i<c.length;i++) {
+			deck.add(c[i]);
+		}
+	}
+	
 	public Card dealOneCard() {
 		Card x = deck.get(0);
 		deck.remove(0);
@@ -39,4 +60,11 @@ public class Deck {
 		return cards;
 	}
 
+	public ArrayList<Card> getDeck(){
+		return deck;
+	}
+	
+	public void remove(int i) {
+		deck.remove(i);
+	}
 }
