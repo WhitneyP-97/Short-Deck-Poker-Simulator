@@ -66,8 +66,8 @@ public class BestHand extends Hand{
 			bestHand = hand;
 			return;
 		}
-		for(int i=0;i<rule.rules.length;i++) {
-			switch (rule.rules[i]) {
+		for(int i=0;i<rule.getRules().length;i++) {
+			switch (rule.getRules()[i]) {
 			case 9:
 				if(isSF()) {
 					bestHand = getBestSF();
