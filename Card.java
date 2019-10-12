@@ -83,4 +83,12 @@ public class Card {
 			}
 		}
 	}
+	
+	public int getValue() {
+		return value;
+	}
+	
+	public int getSuit() {
+		return suit;
+	}
 }
